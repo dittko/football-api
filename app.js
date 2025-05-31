@@ -31,3 +31,11 @@ mongoose.connect(process.env.MONGO_URI)
     );
   })
   .catch(err => console.error('Błąd MongoDB:', err));
+
+
+  module.exports = app;
+if (require.main === module) {
+  app.listen(process.env.PORT || 5000, () =>
+    console.log(` Serwer działa na porcie ${process.env.PORT || 5000}`)
+  );
+}
