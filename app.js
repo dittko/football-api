@@ -22,7 +22,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/llm', llmRoutes);
 
-
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('Connection error:', err));
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Połączono z MongoDB');
