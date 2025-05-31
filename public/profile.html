@@ -1,0 +1,22 @@
+<h2>Zmiana hasła</h2>
+<input id="new1" placeholder="Nowe hasło">
+<input id="new2" placeholder="Powtórz hasło">
+<button onclick="changePassword()">Zmień hasło</button>
+
+<script>
+  async function changePassword() {
+    const newPassword = document.getElementById('new1').value;
+    const repeatPassword = document.getElementById('new2').value;
+    const token = localStorage.getItem('token');
+
+    const res = await fetch('/api/auth/change-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      },
+      body: JSON.stringify({ newPassword, repeatPassword })
+    });
+    alert(await res.text());
+  }
+</script>

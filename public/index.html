@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista Piłkarzy</title>
+</head>
+<body>
+  <h1>Piłkarze</h1>
+  <ul id="players"></ul>
+
+  <script>
+    fetch('/api/players')
+      .then(res => res.json())
+      .then(players => {
+        const ul = document.getElementById('players');
+        players.forEach(p => {
+          const li = document.createElement('li');
+          li.textContent = `${p.name} (${p.position})`;
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
