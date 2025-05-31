@@ -123,3 +123,4 @@ exports.resetPassword = async (req, res) => {
   res.json({ message: 'Hasło zostało zmienione' });
 };
 
+//tak
