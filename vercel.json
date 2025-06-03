@@ -1,0 +1,16 @@
+{
+  "buildCommand": "npm run build:ssr",
+  "outputDirectory": "dist/football-client/browser",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/server"
+    }
+  ],
+  "functions": {
+    "api/server.ts": {
+      "runtime": "nodejs18.x",
+      "launcherType": "Nodejs"
+    }
+  }
+}
